@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barni & Juni – Zwei Pfoten, Eine Welt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-ornament">✦ ✦ ✦</div>
+    <div class="paw-row">🐾</div>
+    <h1 class="site-title">Barni & Juni</h1>
+    <p class="site-subtitle"><em>Zwei Pfoten · Eine Welt · 30 Episoden · 3 Staffeln</em></p>
+    <div class="header-ornament">✦ ✦ ✦</div>
+    <div class="compass-line">
+      <span class="compass-dir">W</span>
+      <div class="compass-rule"></div>
+      <span class="compass-icon">✈</span>
+      <div class="compass-rule"></div>
+      <span class="compass-dir">O</span>
+    </div>
+    <div class="season-pills">
+      <span class="season-pill s1">S1 · Europa</span>
+      <span class="season-pill s2">S2 · Die weite Welt</span>
+      <span class="season-pill s3">S3 · Der Heimweg</span>
+    </div>
+  </header>
+
+  <main class="calendar-container">
+    <div class="month-label">April 2026</div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="gate-curtain left"  id="curtainLeft"></div>
+    <div class="gate-curtain right" id="curtainRight"></div>
+    <div class="modal-theme-bg"     id="modalThemeBg"></div>
+    <div class="modal-particles"    id="modalParticles"></div>
+
+    <div class="modal-content" id="modalContent">
+      <button class="modal-close" id="modalClose" aria-label="Schließen">✕</button>
+
+      <div class="modal-header">
+        <div class="modal-season-badge" id="modalSeasonBadge"></div>
+        <div class="modal-episode"      id="modalEpisode"></div>
+        <div class="modal-location"     id="modalLocation"></div>
+        <div class="modal-divider">
+          <span class="divider-icon" id="dividerIcon"></span>
+        </div>
+      </div>
+
+      <section class="modal-section video-section" id="videoSection">
+        <div class="video-wrapper">
+          <video id="modalVideo" controls playsinline>
+            <source id="modalVideoSrc" src="" type="video/mp4" />
+          </video>
+        </div>
+        <div class="video-hint">▼ Weiter scrollen</div>
+      </section>
+
+      <section class="modal-section photos-section" id="photosSection">
+        <h3 class="section-heading"><span>Unsere Momente</span></h3>
+        <div class="photos-grid" id="photosGrid"></div>
+      </section>
+
+      <section class="modal-section text-section" id="textSection">
+        <div class="text-ornament">❧</div>
+        <p class="memory-text" id="memoryText"></p>
+        <div class="text-ornament flipped">❧</div>
+      </section>
+
+      <section class="modal-section ai-section">
+        <div class="ai-box">
+          <div class="ai-box-label">✨ Erinnerung mit KI schreiben</div>
+          <p class="ai-box-hint">Lass Barni & Juni eine Erinnerung an diesen Ort für euch verfassen.</p>
+          <button class="ai-btn" id="aiBtn">Erinnerung generieren</button>
+          <div class="ai-result" id="aiResult"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev"  id="lightboxPrev">‹</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <button class="lightbox-next"  id="lightboxNext">›</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
