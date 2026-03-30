@@ -1,4 +1,4 @@
-# Unser April – Pilot am 31. März + Türchen im April
+# 13 Jahre Nickia – Pilot am 31. März + Türchen im April
 
 Dieses Repo ist als **statische Netlify-Seite** aufgebaut.  
 Es funktioniert ohne Framework und ist deshalb gut für dein Vorhaben geeignet.
