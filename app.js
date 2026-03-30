@@ -42,10 +42,10 @@ const THEMES = {
 };
 
 const SEASON_LABELS = {
-  0: { label:'Auftakt · 31. März',                    color:'#d6a64a' },
-  1: { label:'Staffel 1 · Europa – Der Weg beginnt', color:'#4a8c5a' },
-  2: { label:'Staffel 2 · Die weite Welt',            color:'#3a7ea8' },
-  3: { label:'Staffel 3 · Amerika – Der Heimweg',     color:'#a84040' },
+  0: { label:'', color:'#d6a64a' },
+  1: { label:'', color:'#4a8c5a' },
+  2: { label:'', color:'#3a7ea8' },
+  3: { label:'', color:'#a84040' },
 };
 
 const AI_SYSTEM = `Du bist ein warmer, persönlicher Erinnerungsschreiber für ein Ehepaar.
@@ -75,6 +75,9 @@ function compareDate(month, day) {
 }
 
 function isUnlocked(entry) {
+  // Testmodus: Das Pilot-Türchen ist bereits ab dem 30. März sichtbar,
+  // damit du den Ablauf einen Tag vorher prüfen kannst.
+  if (entry.key === 'pilot' && compareDate(3, 30) >= 0) return true;
   return compareDate(entry.unlockMonth, entry.unlockDay) >= 0;
 }
 
@@ -191,15 +194,17 @@ function buildCalendar() {
     const itToday  = isToday(entry);
 
     if (season !== lastSeason && SEASON_LABELS[season]) {
-      const div = document.createElement('div');
-      div.className = 'season-divider';
       const s = SEASON_LABELS[season];
-      div.innerHTML = `
-        <div class="season-divider-line" style="background:${s.color}"></div>
-        <div class="season-divider-text" style="color:${s.color};border:1px solid ${s.color}20;background:${s.color}10">${s.label}</div>
-        <div class="season-divider-line" style="background:${s.color}"></div>
-      `;
-      grid.appendChild(div);
+      if (s.label) {
+        const div = document.createElement('div');
+        div.className = 'season-divider';
+        div.innerHTML = `
+          <div class="season-divider-line" style="background:${s.color}"></div>
+          <div class="season-divider-text" style="color:${s.color};border:1px solid ${s.color}20;background:${s.color}10">${s.label}</div>
+          <div class="season-divider-line" style="background:${s.color}"></div>
+        `;
+        grid.appendChild(div);
+      }
       lastSeason = season;
     }
 
@@ -312,8 +317,10 @@ async function openModal(key) {
   modalContent.className = 'modal-content ' + theme.cssClass;
 
   const sLabel = SEASON_LABELS[season];
-  document.getElementById('modalSeasonBadge').textContent = sLabel ? sLabel.label : '';
-  document.getElementById('modalSeasonBadge').style.color = sLabel ? sLabel.color : '';
+  const seasonBadge = document.getElementById('modalSeasonBadge');
+  seasonBadge.textContent = sLabel ? sLabel.label : '';
+  seasonBadge.style.color = sLabel ? sLabel.color : '';
+  seasonBadge.style.display = sLabel && sLabel.label ? '' : 'none';
   document.getElementById('modalEpisode').textContent  = entry.subtitle || '';
   document.getElementById('modalLocation').textContent = entry.location || '';
   document.getElementById('dividerIcon').textContent   = theme.icon;
