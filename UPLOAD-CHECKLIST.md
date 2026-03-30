@@ -1,32 +1,35 @@
-# Upload checklist
+# Upload-Checkliste
 
-## Folder structure
+## Für das Pilot-Türchen
 
-- `assets/pilot/`
-- `assets/day-01/` ... `assets/day-30/`
-- each has a `photos/` subfolder
+Lege Dateien hier ab:
+- `assets/pilot/thumb.jpg` optional
+- `assets/pilot/video.mp4` optional
+- `assets/pilot/photos/1.jpg`
+- `assets/pilot/photos/2.jpg`
+- `assets/pilot/photos/3.jpg`
 
-## Add media
+## Für einen normalen Tag
 
-For each door, you can upload:
+Beispiel für Tag 7:
+- `assets/day-07/thumb.jpg` optional
+- `assets/day-07/video.mp4` optional
+- `assets/day-07/photos/1.jpg`
+- `assets/day-07/photos/2.jpg`
+- `assets/day-07/photos/3.jpg`
 
-- `thumb.jpg` (optional preview image)
-- `video.mp4` (optional clip)
-- `photos/1.jpg`, `photos/2.jpg`, `photos/3.jpg` ...
+## Empfohlener Ablauf
 
-## Fastest workflow
+Vom Handy:
+- Fotos direkt in den passenden `photos/`-Ordner hochladen
 
-From phone:
-- upload photos to the matching `photos/` folder
+Vom Laptop:
+- Video als `video.mp4` in den passenden Tagesordner hochladen
 
-From laptop:
-- upload the clip as `video.mp4`
+## Texte anpassen
 
-## Text content
-
-Edit `data/april.json` for:
+In `data/april.json` kannst du ändern:
 - `location`
 - `subtitle`
 - `text`
 - `uplift`
-- `ai_context`

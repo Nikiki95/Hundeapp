@@ -48,9 +48,6 @@ const SEASON_LABELS = {
   3: { label:'', color:'#a84040' },
 };
 
-const AI_SYSTEM = `Du bist ein warmer, persönlicher Erinnerungsschreiber für ein Ehepaar.
-Schreibe immer auf Deutsch, aus der Wir-Perspektive, liebevoll, leicht poetisch, hoffnungsvoll und echt.
-4 bis 5 Sätze. Kein Kitsch, keine Aufzählungen, keine allgemeinen Floskeln.`;
 
 const today      = new Date();
 const todayDay   = today.getDate();
@@ -382,11 +379,6 @@ async function openModal(key) {
     upliftSection.style.display = 'none';
   }
 
-  document.getElementById('aiResult').textContent = '';
-  document.getElementById('aiResult').className   = 'ai-result';
-  document.getElementById('aiBtn').disabled       = false;
-  document.getElementById('aiBtn').textContent    = '✨ Erinnerung generieren';
-
   spawnParticles(theme.particles, theme.stripe);
   overlay.setAttribute('aria-hidden', 'false');
   overlay.classList.add('active');
@@ -421,56 +413,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-document.getElementById('aiBtn').addEventListener('click', async () => {
-  const btn    = document.getElementById('aiBtn');
-  const result = document.getElementById('aiResult');
-
-  if (!currentEntry?.ai_context) {
-    result.textContent = 'Kein KI-Kontext hinterlegt.';
-    result.className   = 'ai-result error';
-    return;
-  }
-
-  btn.disabled       = true;
-  btn.textContent    = '✨ Schreibe...';
-  result.textContent = '';
-  result.className   = 'ai-result loading';
-
-  try {
-    const response = await fetch('/.netlify/functions/generate-memory', {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json' },
-      body: JSON.stringify({
-        system: AI_SYSTEM,
-        context: currentEntry.ai_context,
-        location: currentEntry.location,
-      })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error || 'KI-Funktion ist noch nicht aktiviert.');
-    }
-
-    const generated = data.text?.trim();
-    if (!generated) throw new Error('Keine Antwort erhalten.');
-
-    result.textContent = generated;
-    result.className   = 'ai-result';
-
-    const memoryText  = document.getElementById('memoryText');
-    const textSection = document.getElementById('textSection');
-    memoryText.textContent    = generated;
-    textSection.style.display = '';
-  } catch(err) {
-    result.textContent = `Fehler: ${err.message}`;
-    result.className   = 'ai-result error';
-  }
-
-  btn.disabled    = false;
-  btn.textContent = '✨ Neue Erinnerung';
-});
 
 const lightbox    = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');

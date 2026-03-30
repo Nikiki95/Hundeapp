@@ -290,34 +290,6 @@ body::before {
   max-width:680px; margin:1.5rem auto; font-style:italic; white-space:pre-wrap;
 }
 
-.ai-section { padding-top:1rem; padding-bottom:2rem; }
-.ai-box {
-  background:rgba(255,255,255,.04); border:1px solid var(--theme-divider, rgba(201,147,58,.4));
-  border-radius:6px; padding:1.5rem 2rem; text-align:center; backdrop-filter:blur(4px);
-}
-.ai-box-label {
-  font-family:var(--font-sans); font-size:.8rem; letter-spacing:.15em;
-  text-transform:uppercase; color:var(--theme-accent-l); margin-bottom:.5rem;
-}
-.ai-box-hint {
-  font-family:var(--font-fell); font-style:italic;
-  color:rgba(255,255,255,.45); font-size:.95rem; margin-bottom:1.2rem;
-}
-.ai-btn {
-  background:var(--theme-accent); color:#fff; border:none; border-radius:3px;
-  padding:.65rem 2rem; font-family:var(--font-sans); font-size:.8rem;
-  letter-spacing:.15em; text-transform:uppercase; cursor:pointer;
-  transition:filter .2s, transform .15s, opacity .2s;
-}
-.ai-btn:hover:not(:disabled) { filter:brightness(1.15); transform:translateY(-1px); }
-.ai-btn:disabled { opacity:.5; cursor:default; transform:none; }
-.ai-result {
-  margin-top:1.5rem; font-family:var(--font-fell); font-style:italic;
-  color:var(--theme-text, rgba(245,239,224,.88)); line-height:1.8;
-  font-size:clamp(1rem,2.5vw,1.2rem); white-space:pre-wrap;
-}
-.ai-result.loading { opacity:.6; }
-.ai-result.error { color:#e07070; font-style:normal; font-size:.9rem; }
 
 /* ═══════════════════════════════════════════════════
    30 THEMES

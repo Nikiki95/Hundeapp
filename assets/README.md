@@ -1,19 +1,23 @@
 # Medienordner
 
-Für das Pilot-Türchen:
-- `assets/pilot/thumb.jpg`
-- `assets/pilot/video.mp4`
-- `assets/pilot/photos/1.jpg`
+## Pilot
+- `assets/pilot/thumb.jpg` optional
+- `assets/pilot/video.mp4` optional
+- `assets/pilot/photos/1.jpg`, `2.jpg`, `3.jpg` ...
 
-Für April:
-- `assets/day-01/...`
-- `assets/day-02/...`
+## April-Tage
+Für jeden Tag gibt es einen Ordner:
+- `assets/day-01/`
+- `assets/day-02/`
 - ...
-- `assets/day-30/...`
+- `assets/day-30/`
 
-Fotos im Ordner `photos/` am besten durchnummerieren:
-`1.jpg`, `2.jpg`, `3.jpg`, ...
+In jedem Tagesordner:
+- `thumb.jpg` optional
+- `video.mp4` optional
+- `photos/1.jpg`, `2.jpg`, `3.jpg` ...
 
-Tipp:
-- iPhone-Fotos vor dem Upload möglichst als JPG exportieren
-- Videos besser als MP4 speichern
+## Tipps
+- Fotos möglichst als JPG oder PNG
+- Videos möglichst als MP4
+- Fotos im `photos/`-Ordner durchnummerieren
