@@ -1,111 +1,121 @@
-# 🐾 Barni & Juni – Zwei Pfoten, Eine Welt
+# Unser April – Pilot am 31. März + Türchen im April
 
-30 Episoden · 3 Staffeln · 1 April · Unendlich viele Erinnerungen
+Dieses Repo ist als **statische Netlify-Seite** aufgebaut.  
+Es funktioniert ohne Framework und ist deshalb gut für dein Vorhaben geeignet.
 
----
+## Was jetzt schon da ist
 
-## 🗺️ Die 30 Episoden
+- Kalender-Frontend mit Türchen
+- Modal mit Video, Fotos, Text und Lightbox
+- **Pilot-Türchen am 31. März**
+- April-Türchen vom 1. bis 30. April
+- Netlify-taugliche Struktur
+- Sichere KI-Anbindung über **Netlify Function** statt direkt im Browser
+- Automatische Medien-Erkennung, damit du **Fotos einfach in GitHub hochladen** kannst
 
-### Staffel 1: Europa – Der Weg beginnt (Tage 1–10)
-| Tag | Episode | Location |
-|-----|---------|----------|
-| 1  | S1·E01 | 🌲 Wald bei Nürnberg |
-| 2  | S1·E02 | 🏰 Nürnberg – Altstadt & Burg |
-| 3  | S1·E03 | 🌙 Nachtzug · Osteuropa |
-| 4  | S1·E04 | 🦇 Cluj-Napoca |
-| 5  | S1·E05 | 🌹 Bukarest (Barni Homecoming) |
-| 6  | S1·E06 | ♨️ Budapest |
-| 7  | S1·E07 | ❄️ Stockholm |
-| 8  | S1·E08 | 🌊 Lissabon (Juni Homecoming) |
-| 9  | S1·E09 | 🌾 Camino de Santiago |
-| 10 | S1·E10 | 🌋 Azoren – Staffelfinale |
+## Was du nicht mehr für jedes Türchen machen musst
 
-### Staffel 2: Die weite Welt (Tage 11–20)
-| Tag | Episode | Location |
-|-----|---------|----------|
-| 11 | S2·E01 | 🌺 Madeira |
-| 12 | S2·E02 | 🍷 Bordeaux – Croissants |
-| 13 | S2·E03 | 🕌 Istanbul |
-| 14 | S2·E04 | 🐪 Hurghada · Ägypten |
-| 15 | S2·E05 | 🐠 Rotes Meer – Schnorcheln |
-| 16 | S2·E06 | 🚫 Malediven – Tiefpunkt |
-| 17 | S2·E07 | 🐚 Bahamas |
-| 18 | S2·E08 | 🐙 Bahamas – Korallenriff |
-| 19 | S2·E09 | ⛵ Atlantik – Der Sturm |
-| 20 | S2·E10 | 🌅 Staffelfinale S2 |
+Für Bilder musst du **nicht mehr zwingend** `data/april.json` anfassen.
 
-### Staffel 3: Der Heimweg (Tage 21–30)
-| Tag | Episode | Location |
-|-----|---------|----------|
-| 21 | S3·E01 | 🌅 Westküste USA – Pacific Coast |
-| 22 | S3·E02 | 🦜 Costa Rica – Pura Vida |
-| 23 | S3·E03 | 🐆 Ecuador – Amazonas |
-| 24 | S3·E04 | 🐢 Galápagos |
-| 25 | S3·E05 | 🏔️ Chile – Patagonien & Atacama |
-| 26 | S3·E06 | 💃 Buenos Aires |
-| 27 | S3·E07 | 🦅 Patagonien |
-| 28 | S3·E08 | 🌑 Die Konfrontation |
-| 29 | S3·E09 | 🌅 Das Erwachen |
-| 30 | S3·E10 | 🐾 Den langen Weg – Finale |
+Wenn du Dateien in die richtigen Ordner legst, werden sie automatisch gefunden:
 
----
+```text
+assets/pilot/
+├── thumb.jpg
+├── video.mp4
+└── photos/
+    ├── 1.jpg
+    ├── 2.jpg
+    └── ...
 
-## 🚀 Setup (Netlify, kostenlos)
-
-1. Auf [github.com](https://github.com): neues **privates** Repo `barni-juni`
-2. Alle Dateien per Drag & Drop hochladen
-3. [netlify.com](https://netlify.com) → Sign up mit GitHub → **Add site → Import from GitHub**
-4. Repo auswählen, Build-Felder leer lassen → **Deploy**
-5. URL unter *Site configuration → Site name* umbenennen
-
----
-
-## 📁 Dateien befüllen
-
-Für jeden Tag:
-```
-assets/day-XX/
-├── thumb.jpg       ← Vorschaubild auf dem Kalenderblatt
-├── video.mp4       ← Barni & Juni AI-Video
+assets/day-05/
+├── thumb.jpg
+├── video.mp4
 └── photos/
     ├── 1.jpg
     ├── 2.jpg
     └── ...
 ```
 
-In `data/april.json` für jeden Tag ergänzen:
-```json
-{
-  "day": 5,
-  "photos": ["assets/day-05/photos/1.jpg", "assets/day-05/photos/2.jpg"],
-  "text": "Optionaler eigener Text (sonst KI-Button nutzen)"
-}
-```
+Unterstützte Dateiformate:
+- Thumbnails: `jpg`, `jpeg`, `png`, `webp`
+- Fotos: `jpg`, `jpeg`, `png`, `webp`
+- Videos: `mp4`, `webm`, `mov`
 
----
+## So pflegst du Inhalte
 
-## ✨ KI-Textgenerierung
+### 1) Fotos vom Handy
+Einfach in GitHub im passenden Ordner hochladen:
 
-Jedes Modal hat einen **„Erinnerung generieren"** Button – Claude schreibt automatisch einen persönlichen deutschen Text aus der Wir-Perspektive, passend zur Stimmung der Episode.
+- `assets/pilot/photos/`
+- `assets/day-01/photos/`
+- `assets/day-02/photos/`
+- ...
+- `assets/day-30/photos/`
 
----
+Am einfachsten benennst du sie:
+`1.jpg`, `2.jpg`, `3.jpg`, ...
 
-## 💡 Datum simulieren (Testing)
+### 2) Videos vom Laptop
+Lege pro Türchen ein Video ab als:
 
-In `app.js` Zeile 1 nach dem ersten Kommentarblock:
-```javascript
-// const today = new Date();
-const today = new Date(2026, 3, 15); // Simuliert 15. April
-```
+- `assets/pilot/video.mp4`
+- `assets/day-07/video.mp4`
 
-## 💡 Videos zu groß für GitHub?
+### 3) Vorschaubild
+Optional als:
+- `thumb.jpg`
 
-Externe URL direkt in `april.json`:
-```json
-"video": "https://dein-storage.example.com/day-01.mp4"
-```
-Empfehlung: Cloudflare R2 (kostenlos bis 10 GB)
+### 4) Text / liebe Worte / Ort
+Das pflegst du in:
+- `data/april.json`
 
----
+Relevante Felder pro Eintrag:
+- `location`
+- `subtitle`
+- `text`
+- `uplift`
+- `ai_context`
 
-*Gemacht mit ❤️ für einen besonderen April.*
+## KI-Texte auf Netlify aktivieren
+
+Die KI läuft über eine Netlify Function in:
+- `netlify/functions/generate-memory.js`
+
+Dafür in Netlify eine Environment Variable setzen:
+
+- `ANTHROPIC_API_KEY`
+
+Wichtig: Die Variable muss in Netlify für **Functions** verfügbar sein.  
+Nicht in `netlify.toml` eintragen.
+
+## Deploy
+
+1. Repo zu GitHub pushen
+2. In Netlify: **Add new site → Import from Git**
+3. Repo auswählen
+4. Build command leer lassen
+5. Publish directory leer lassen
+6. Deploy
+
+## Empfehlung für Medien
+
+- **Fotos**: problemlos direkt in GitHub
+- **Kurze Videos**: ebenfalls okay, solange die Dateien moderat bleiben
+- **Größere Videos**: besser extern hosten und den Pfad in `data/april.json` setzen
+
+## Inhaltlich noch offen
+
+Das Repo enthält noch viele bestehende Platzhalter-Texte und Story-Elemente.  
+Die Technik ist jetzt näher an deinem Ziel, aber die eigentliche emotionale Befüllung musst du noch personalisieren.
+
+## Tipp für deinen Use Case
+
+Wenn sie gerade etwas down ist, würde ich pro Tag drei Ebenen kombinieren:
+
+1. kurzes Video
+2. 3 bis 8 echte Fotos
+3. ein kurzer Satz in `uplift`, der leicht, warm und persönlich ist
+
+Beispiel:
+> Ich bin so gern mit dir unterwegs – selbst die kleinen Momente mit dir fühlen sich groß an.
